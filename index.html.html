@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kundli Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, button {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        .chart {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            border: 2px solid black;
+        }
+
+        .box {
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kundli Generator</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="date" id="dob">
+    <input type="time" id="tob">
+    <input type="text" id="place" placeholder="Enter Birth Place">
+    <button onclick="generateKundli()">Generate Kundli</button>
+
+    <div id="result"></div>
+
+    <div class="chart" id="chart" style="display:none;">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</div>
+
+<script>
+function generateKundli() {
+    var name = document.getElementById("name").value;
+    var dob = document.getElementById("dob").value;
+    var tob = document.getElementById("tob").value;
+    var place = document.getElementById("place").value;
+
+    if(name == "" || dob == "" || tob == "" || place == "") {
+        alert("Please fill all details");
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "<h3>Kundli for " + name + "</h3>" +
+        "<p>DOB: " + dob + "</p>" +
+        "<p>Time: " + tob + "</p>" +
+        "<p>Place: " + place + "</p>";
+
+    document.getElementById("chart").style.display = "grid";
+}
+</script>
+
+</body>
+</html>
